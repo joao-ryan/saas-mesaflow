@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { User, UserRole } from '../types';
+import { UserRole } from '../types';
+import type { User } from '../types';
 
 interface AuthState {
   isAuthenticated: boolean;
