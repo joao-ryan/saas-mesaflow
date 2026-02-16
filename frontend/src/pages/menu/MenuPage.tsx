@@ -8,12 +8,12 @@ import { Badge } from '../../components/ui/Badge';
 
 const MenuPage: React.FC = () => {
   const menuItems = [
-    { id: 1, name: 'Pizza Margherita', category: 'Pizzas', price: 58.50, available: true, image: 'https://picsum.photos/400/300?random=1' },
-    { id: 2, name: 'Pasta de Trufas', category: 'Pratos Principais', price: 84.00, available: true, image: 'https://picsum.photos/400/300?random=2' },
-    { id: 3, name: 'Salada Caesar', category: 'Entradas', price: 42.50, available: false, image: 'https://picsum.photos/400/300?random=3' },
-    { id: 4, name: 'Steak Ribeye', category: 'Grelhados', price: 118.00, available: true, image: 'https://picsum.photos/400/300?random=4' },
-    { id: 5, name: 'Tiramisu', category: 'Sobremesas', price: 29.50, available: true, image: 'https://picsum.photos/400/300?random=5' },
-    { id: 6, name: 'Vinho Tinto (Taça)', category: 'Bebidas', price: 35.00, available: true, image: 'https://picsum.photos/400/300?random=6' },
+    { id: 1, name: 'Pizza Margherita', category: 'Pizzas', price: 58.50, available: true, image: 'https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/494feec171f5683665eba434d22e52f5.jpg?itok=n3xpYgtR' },
+    { id: 2, name: 'Pasta de Trufas', category: 'Pratos Principais', price: 84.00, available: true, image: 'https://www.giallozafferano.com.br/images/120-12001/fettuccine-ao-trufa_650x433_wm.jpg' },
+    { id: 3, name: 'Salada Caesar', category: 'Entradas', price: 42.50, available: false, image: 'https://receitadaboa.com.br/wp-content/uploads/2024/04/bottom_view_caesar_salad_oval_plate_dark_red_table-23000869-1.jpg' },
+    { id: 4, name: 'Steak Ribeye', category: 'Grelhados', price: 118.00, available: true, image: 'https://foremangrillrecipes.com/wp-content/uploads/featured-ribeye-steak-foreman-grill-new.jpg' },
+    { id: 5, name: 'Tiramisu', category: 'Sobremesas', price: 29.50, available: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Home-made_tiramisu%2C_november_2008.jpg/1280px-Home-made_tiramisu%2C_november_2008.jpg' },
+    { id: 6, name: 'Vinho Tinto (Taça)', category: 'Bebidas', price: 35.00, available: true, image: 'https://vinsel.com.br/cdn/shop/articles/2151514996-365120.jpg?crop=center&height=630&v=1727459268&width=1120' },
   ];
 
   return (
