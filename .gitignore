@@ -1,3 +1,5 @@
+server_error.log
+server_error_v2.log
 # Logs
 logs
 *.log

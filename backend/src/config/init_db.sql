@@ -2,13 +2,13 @@
 
 -- Enums (Idempotent)
 DO $$ BEGIN
-    CREATE TYPE user_role AS ENUM ('ADMIN', 'OWNER', 'MANAGER', 'STAFF', 'CUSTOMER');
+    CREATE TYPE user_role AS ENUM ('ADMIN', 'USER', 'MANAGER', 'STAFF', 'OWNER', 'CUSTOMER');
 EXCEPTION
     WHEN duplicate_object THEN null;
 END $$;
 
 DO $$ BEGIN
-    CREATE TYPE order_status AS ENUM ('PENDING', 'PREPARING', 'READY', 'DELIVERED', 'CANCELLED');
+    CREATE TYPE order_status AS ENUM ('RECEIVED', 'PREPARING', 'READY', 'DELIVERED', 'CANCELLED');
 EXCEPTION
     WHEN duplicate_object THEN null;
 END $$;
@@ -110,5 +110,14 @@ CREATE TRIGGER update_products_updated_at BEFORE UPDATE ON products FOR EACH ROW
 
 DROP TRIGGER IF EXISTS update_orders_updated_at ON orders;
 CREATE TRIGGER update_orders_updated_at BEFORE UPDATE ON orders FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- Indices for performance
+CREATE INDEX IF NOT EXISTS idx_users_restaurant_id ON users(restaurant_id);
+CREATE INDEX IF NOT EXISTS idx_categories_restaurant_id ON categories(restaurant_id);
+CREATE INDEX IF NOT EXISTS idx_products_restaurant_id ON products(restaurant_id);
+CREATE INDEX IF NOT EXISTS idx_products_category_id ON products(category_id);
+CREATE INDEX IF NOT EXISTS idx_orders_restaurant_id ON orders(restaurant_id);
+CREATE INDEX IF NOT EXISTS idx_orders_user_id ON orders(user_id);
+CREATE INDEX IF NOT EXISTS idx_order_items_order_id ON order_items(order_id);
 
 

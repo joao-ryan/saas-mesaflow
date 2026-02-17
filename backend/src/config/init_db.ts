@@ -7,15 +7,15 @@ const initDb = async () => {
     const sqlPath = path.join(__dirname, 'init_db.sql');
     const sql = fs.readFileSync(sqlPath, 'utf8');
 
-    console.log('Initializing database schema...');
+    console.log('Inicializando o esquema do banco de dados...');
     await pool.query(sql);
-    console.log('Database schema initialized successfully!');
+    console.log('Esquema do banco de dados inicializado com sucesso!');
   } catch (error) {
-    console.error('Error initializing database schema:', error);
+    console.error('Erro ao inicializar o esquema do banco de dados:', error);
     process.exit(1);
   } finally {
-    // We don't necessarily want to close the pool if this is called from within the app,
-    // but if it's a standalone script, we should.
+    // Não fechamos o pool aqui se for chamado de dentro da aplicação,
+    // mas se for um script standalone, o processo é encerrado no require.main.
   }
 };
 

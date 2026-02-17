@@ -8,14 +8,14 @@ const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
   try {
-    // Initialize database schema
+    // Inicializa o esquema do banco de dados na inicialização
     await initDb();
 
     const server = app.listen(PORT, () => {
       console.log(`Servidor rodando na porta ${PORT}`);
     });
 
-    // Graceful Shutdown
+    // Encerramento Gracioso do Servidor
     const shutdown = () => {
       console.log('Servidor fechando...');
       server.close(() => {

@@ -16,7 +16,7 @@ export class RestaurantService {
     try {
       await client.query('BEGIN');
 
-      // 1. Create Restaurant
+      // 1. Cria o Restaurante
       const restaurantQuery = `
         INSERT INTO restaurants (name, slug)
         VALUES ($1, $2)
@@ -25,7 +25,7 @@ export class RestaurantService {
       const restaurantResult = await client.query(restaurantQuery, [restaurantName, restaurantSlug]);
       const restaurant = restaurantResult.rows[0];
 
-      // 2. Create Owner User
+      // 2. Cria o Usuário Proprietário
       const hashedPassword = await bcrypt.hash(ownerPassword, 12);
       const userQuery = `
         INSERT INTO users (email, password, name, restaurant_id, role)
@@ -53,7 +53,7 @@ export class RestaurantService {
 
     if (!restaurant) return null;
 
-    // Get categories and products
+    // Busca categorias e produtos associados
     const categoriesQuery = 'SELECT * FROM categories WHERE restaurant_id = $1';
     const categoriesResult = await pool.query(categoriesQuery, [id]);
 

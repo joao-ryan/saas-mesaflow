@@ -6,10 +6,9 @@ export class AuthService {
   static async register(data: any) {
     const { email, password, name, restaurantId, role } = data;
 
-    // Check if user exists
     const existingUser = await pool.query('SELECT id FROM users WHERE email = $1', [email]);
     if (existingUser.rows.length > 0) {
-      throw new Error('User with this email already exists');
+      throw new Error('Usuário com este e-mail já existe');
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
@@ -33,7 +32,7 @@ export class AuthService {
     const user = result.rows[0];
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      throw new Error('Invalid email or password');
+      throw new Error('E-mail ou senha inválidos');
     }
 
     const token = jwt.sign(
@@ -42,7 +41,7 @@ export class AuthService {
       { expiresIn: '1d' }
     );
 
-    // Don't return password
+    // Não retorna a senha no objeto de resposta
     const { password: _, ...userWithoutPassword } = user;
     return { user: userWithoutPassword, token };
   }

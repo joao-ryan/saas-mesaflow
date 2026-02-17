@@ -21,7 +21,7 @@ export const getRestaurantDetails = async (req: Request, res: Response) => {
     const { id } = req.params;
     const restaurant = await RestaurantService.getById(id as string);
     if (!restaurant) {
-      return res.status(404).json({ message: 'Restaurant not found' });
+      return res.status(404).json({ message: 'Restaurante não encontrado' });
     }
     res.status(200).json({ status: 'success', data: restaurant });
   } catch (error: any) {

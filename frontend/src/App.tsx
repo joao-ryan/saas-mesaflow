@@ -2,8 +2,6 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './routes/ProtectedRoute';
-
-// Pages
 import LoginPage from './pages/login/LoginPage';
 import DashboardPage from './pages/dashboard/DashboardPage';
 import TablesPage from './pages/tables/TablesPage';
@@ -17,7 +15,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        
+
         <Route path="/login" element={<LoginPage />} />
 
 
