@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const restaurant_controller_1 = require("../controllers/restaurant.controller");
+const validation_middleware_1 = require("../middlewares/validation.middleware");
+const validators_1 = require("../utils/validators");
+const router = (0, express_1.Router)();
+router.post('/setup', (0, validation_middleware_1.validate)(validators_1.setupRestaurantSchema), restaurant_controller_1.setupRestaurant);
+router.get('/:id', restaurant_controller_1.getRestaurantDetails);
+exports.default = router;

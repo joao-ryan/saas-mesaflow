@@ -17,10 +17,10 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Public Routes */}
+        
         <Route path="/login" element={<LoginPage />} />
 
-        {/* Protected Routes */}
+
         <Route
           path="/dashboard"
           element={
